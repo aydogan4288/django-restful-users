@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <style>
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+</style>
+    <title></title>
+  </head>
+  <body>
+
+    <table>
+      <tr>
+        <th>User ID</th>
+        <th>Fullname</th>
+        <th>Email</th>
+        <th>Created at</th>
+        <th>Actions</th>
+      </tr>
+      {%for user in users%}
+      <tr>
+        <td>{{user.id}}</td>
+        <td>{{user.fullname}}</td>
+        <td>{{user.email}}</td>
+        <td>{{user.created_at}}</td>
+        <td>
+          <a href="users/{{user.id}}">Show</a>
+          <a href="users/{{user.id}}/edit">Edit</a>
+          <a href="{{user.id}}/delete">Delete</a>
+        </td>
+      </tr>
+      {%endfor%}
+    </table>
+  </body>
+</html>
